@@ -1,4 +1,4 @@
-.list-item {
+.list_item {
   width: 90%;
   min-height: 40px;
   align-items: center;
@@ -8,17 +8,20 @@
   border-radius: 5px;
   margin: 10px auto;
 
-  .list-text {
+  .list_text {
     border: none;
     background-color: #8080802b;
     width: 65%;
     font-size: 16px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
-  .edit {
+  .list_edit {
     width: 40px;
     height: 40px;
-    background-color: #1486d799;
+    background-color: #8593b7;
     border: none;
     border-radius: 5px;
 
@@ -31,7 +34,7 @@
     }
   }
 
-  .delete {
+  .list_delete {
     width: 40px;
     height: 40px;
     background-color: #e7bdbd;

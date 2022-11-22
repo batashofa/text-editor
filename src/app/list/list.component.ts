@@ -1,5 +1,4 @@
-import {Component} from '@angular/core';
-import {AppService} from "../app.service";
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {Todo} from "../todo";
 
 @Component({
@@ -9,20 +8,25 @@ import {Todo} from "../todo";
 })
 export class ListComponent {
   toggle: boolean = true;
-  todos: Todo[] = [];
 
-  constructor(private appService: AppService) { }
+  @Input()
+  todos: Todo[] | undefined;
 
-  ngOnInit(): void {
-    this.getTodos();
-  }
+  @Output()
+  delete: EventEmitter<Todo> = new EventEmitter();
 
-  getTodos(): void {
-    this.appService.getTodos()
-      .subscribe(todos => this.todos = todos.slice(0,7));
-  }
+  @Output()
+  update: EventEmitter<Todo> = new EventEmitter();
+
   toggleList() {
     this.toggle = !this.toggle;
   }
 
+  deleteTodo(todo: Todo) {
+    this.delete.emit(todo);
+  }
+
+  updateTodo(todo: Todo) {
+    this.update.emit(todo);
+  }
 }

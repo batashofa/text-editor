@@ -1,12 +1,16 @@
 <div class="list">
-  <button (click)="toggleList()" class="list-toggle">Toggle list</button>
-
-  <ul *ngIf="toggle; else noList">
-    <app-list-item *ngFor="let todo of todos" [todo]="todo"></app-list-item>
+  <button (click)="toggleList()" class="list_toggle">Toggle list</button>
+  <ul class="list_items" *ngIf="toggle; else noList">
+    <app-list-item
+      *ngFor="let todo of todos"
+      [todo]="todo"
+      (delete)="deleteTodo($event)"
+      (update)="updateTodo($event)"
+    >
+    </app-list-item>
   </ul>
-
 </div>
 
 <ng-template #noList>
-  <div class="list-hidden">List is hidden</div>
+  <div class="list_hidden">List is hidden</div>
 </ng-template>

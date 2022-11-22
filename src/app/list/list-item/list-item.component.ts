@@ -1,6 +1,5 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Todo} from "../../todo";
-import {AppService} from "../../app.service";
 
 @Component({
   selector: 'app-list-item',
@@ -8,7 +7,44 @@ import {AppService} from "../../app.service";
   styleUrls: ['./list-item.component.scss']
 })
 export class ListItemComponent {
-  checked: boolean = true;
-  @Input() todo: Todo | undefined;
+  readonly: boolean = true;
 
+  @Input()
+  todo!: Todo;
+
+  @Output()
+  delete: EventEmitter<Todo> = new EventEmitter();
+
+  @Output()
+  update: EventEmitter<Todo> = new EventEmitter();
+
+  deleteTodo(todo: Todo) {
+    this.delete.emit(todo);
+  }
+
+  updateTodo(todo: Todo) {
+    this.update.emit(todo);
+  }
+
+  editTodo(todo: Todo, title: string) {
+    if (!this.readonly){
+      this.changeText(todo, title);
+    }
+    this.readonly = !this.readonly;
+
+  }
+
+  changeText(todo: Todo, title: string) {
+    this.updateTodo({
+      ...todo,
+      title: title
+    })
+  }
+
+  toggleCheckbox(todo: Todo){
+    this.updateTodo({
+      ...todo,
+      completed: !todo.completed
+    })
+  }
 }

@@ -1,4 +1,11 @@
 <div class="container">
-  <app-task></app-task>
-  <app-list></app-list>
+  <app-task
+    (addTodo)="postTodo($event)">
+  </app-task>
+  <app-list
+    [todos]="todos"
+    (delete)="deleteTodo($event)"
+    (update)="updateTodo($event)"
+  >
+  </app-list>
 </div>

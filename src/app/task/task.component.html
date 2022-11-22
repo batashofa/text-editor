@@ -2,14 +2,12 @@
 <div>
   <div class="title">{{ title }}</div>
   <form action="#" class="task">
-    <input type="text" #myInput placeholder="Type something..." (input)="inputHandler(myInput.value)">
-    <button type="submit" (click)="addedTask(myInput.value); myInput.value=''">
+    <input type="text"
+           #myInput
+           placeholder="New note">
+    <button type="submit"
+            (click)="addedTask(myInput.value, $event); myInput.value=''">
       <img src="assets/plus.png">
     </button>
   </form>
-  <div [ngStyle]=" {
-    color: 'green'
-}">
-    {{ modal }}
-  </div>
 </div>

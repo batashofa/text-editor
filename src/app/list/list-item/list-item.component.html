@@ -1,11 +1,22 @@
-<li class="list-item" >
-  <input type="checkbox" [checked]="todo?.completed">
-  <input [value]="todo?.title?.toUpperCase()" class="list-text" type="text">
-  <button class="edit">
-    <img src="assets/edit.png">
+<li class="list_item"
+    [style.backgroundColor]="todo.completed? '#1486d799' : '#8080808f'"
+    [style.textDecoration]="todo.completed? 'line-through' : 'none'">
+  <input
+    [checked]="todo.completed"
+    (change)="toggleCheckbox(todo)"
+    type="checkbox">
+  <input [readonly]="readonly" #todoTitle
+         [style.outline]="readonly ? '0' : 'black solid 2px'"
+         [style.outlineOffset]="readonly ? '1' : '5px'"
+         (keyup.enter)="changeText(todo, todoTitle.value)"
+         [value]="todo?.title"
+         (change)="todoTitle.value = todoTitle.value"
+         class="list_text" type="text">
+  <button class="list_edit" title="change todo" (click)="editTodo(todo, todoTitle.value)">
+    <img *ngIf="readonly" src="assets/edit.png">
+    <img *ngIf="!readonly" src="assets/save.png">
   </button>
-  <button class="delete" title="delete todo">
-    <!--          (click)="delete(todo)"-->
+  <button class="list_delete" title="delete todo" (click)="deleteTodo(todo)">
     <img src="assets/delete.png">
   </button>
 </li>
