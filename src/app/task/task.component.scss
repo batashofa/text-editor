@@ -1,0 +1,45 @@
+img {
+  width: 100px;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+}
+
+.task {
+  margin: 20px 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+
+  input {
+    width: 80%;
+    border: none;
+    background-color: #a9a9a952;
+    border-radius: 5px;
+    height: 40px;
+    padding: 0 10px;
+  }
+
+  button {
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    background-color: #1486d799;
+
+    img {
+      width: 100%;
+    }
+
+    img:hover {
+      cursor: pointer;
+    }
+  }
+
+  .invisible {
+    display: none;
+  }
+}

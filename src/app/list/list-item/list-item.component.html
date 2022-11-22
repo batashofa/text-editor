@@ -1,0 +1,11 @@
+<li class="list-item" >
+  <input type="checkbox" [checked]="todo?.completed">
+  <input [value]="todo?.title?.toUpperCase()" class="list-text" type="text">
+  <button class="edit">
+    <img src="assets/edit.png">
+  </button>
+  <button class="delete" title="delete todo">
+    <!--          (click)="delete(todo)"-->
+    <img src="assets/delete.png">
+  </button>
+</li>

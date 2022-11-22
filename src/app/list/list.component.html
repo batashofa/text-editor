@@ -1,0 +1,12 @@
+<div class="list">
+  <button (click)="toggleList()" class="list-toggle">Toggle list</button>
+
+  <ul *ngIf="toggle; else noList">
+    <app-list-item *ngFor="let todo of todos" [todo]="todo"></app-list-item>
+  </ul>
+
+</div>
+
+<ng-template #noList>
+  <div class="list-hidden">List is hidden</div>
+</ng-template>
