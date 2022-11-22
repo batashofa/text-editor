@@ -4,7 +4,7 @@ import {Todo} from "../todo";
 @Component({
   selector: 'app-task',
   templateUrl: './task.component.html',
-  styleUrls: ['./task.component.scss']
+  styleUrls: ['./task.component.css']
 })
 export class TaskComponent  {
   title: string = 'Text editor with tags';

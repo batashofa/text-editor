@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import {ListComponent} from "./list.component";
 import { ListItemComponent } from './list-item/list-item.component';
 import {FormsModule} from "@angular/forms";
+import { FilterByTagPipe } from './pipes/filter-by-tag.pipe';
 
 
 
@@ -10,7 +11,8 @@ import {FormsModule} from "@angular/forms";
 @NgModule({
   declarations: [
     ListComponent,
-    ListItemComponent
+    ListItemComponent,
+    FilterByTagPipe
   ],
   exports: [
     ListComponent

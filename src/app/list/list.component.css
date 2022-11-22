@@ -1,0 +1,33 @@
+.list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  row-gap: 5%;
+  background-color: #a9a9a929;
+  border: none;
+  border-radius: 5px;
+}
+
+.list_toggle {
+  width: 20%;
+  background-color: #1486d799;
+  border: none;
+  border-radius: 5px;
+  margin: 20px 20px 0 auto;
+  font-size: 16px;
+}
+
+.list_toggle:hover {
+  cursor: pointer;
+}
+
+.list_items {
+  padding: 0;
+  margin-bottom: 0;
+}
+
+.list_hidden {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}

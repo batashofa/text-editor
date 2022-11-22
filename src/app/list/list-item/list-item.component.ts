@@ -4,7 +4,7 @@ import {Todo} from "../../todo";
 @Component({
   selector: 'app-list-item',
   templateUrl: './list-item.component.html',
-  styleUrls: ['./list-item.component.scss']
+  styleUrls: ['./list-item.component.css']
 })
 export class ListItemComponent {
   readonly: boolean = true;

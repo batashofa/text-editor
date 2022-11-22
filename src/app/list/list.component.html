@@ -2,7 +2,7 @@
   <button (click)="toggleList()" class="list_toggle">Toggle list</button>
   <ul class="list_items" *ngIf="toggle; else noList">
     <app-list-item
-      *ngFor="let todo of todos"
+      *ngFor="let todo of todos | filterByTag: title"
       [todo]="todo"
       (delete)="deleteTodo($event)"
       (update)="updateTodo($event)"
