@@ -1,13 +1,21 @@
 <div class="list">
   <button (click)="toggleList()" class="list_toggle">Toggle list</button>
+
   <ul class="list_items" *ngIf="toggle; else noList">
     <app-list-item
-      *ngFor="let todo of todos | filterByTag: title"
+      *ngFor="let todo of todos"
       [todo]="todo"
       (delete)="deleteTodo($event)"
       (update)="updateTodo($event)"
     >
     </app-list-item>
+  </ul>
+  <ul>
+  <app-hash-item
+    *ngFor="let hash of hashes"
+    [hash]="hash"
+  >
+  </app-hash-item>
   </ul>
 </div>
 

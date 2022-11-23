@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
-import { AppService } from "./app.service";
-import { Todo } from "./todo";
+import {Component} from '@angular/core';
+import {AppService} from "./app.service";
+import {Todo} from "./todo";
 
 @Component({
   selector: 'app-root',
@@ -9,10 +9,12 @@ import { Todo } from "./todo";
 })
 export class AppComponent {
   todos: Todo[] = [];
+  hashes: Array<string> | null = [];
   myId: number = 2343532;
   title = 'text-editor';
 
-  constructor(private appService: AppService) { }
+  constructor(private appService: AppService) {
+  }
 
   ngOnInit(): void {
     this.getTodos();
@@ -20,12 +22,16 @@ export class AppComponent {
 
   getTodos(): void {
     this.appService.getTodos()
-      .subscribe(todos => this.todos = todos.slice(0,5));
+      .subscribe(todos => this.todos = todos.slice(0, 5));
   }
 
   postTodo(todo: Todo): void {
     this.appService.postTodo(todo)
-      .subscribe(todo => this.todos = [...this.todos, todo]);
+      .subscribe(todo => {
+        this.todos = [...this.todos, todo];
+        this.hashes = this.todos.map((item) => item?.title).join().match(/#[0-9A-Za-zА-Яа-яё]+/g);
+        console.log(this.hashes)
+      });
   }
 
   deleteTodo(todo: Todo): void {

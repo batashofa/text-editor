@@ -4,6 +4,7 @@ import {ListComponent} from "./list.component";
 import { ListItemComponent } from './list-item/list-item.component';
 import {FormsModule} from "@angular/forms";
 import { FilterByTagPipe } from './pipes/filter-by-tag.pipe';
+import { HashItemComponent } from './hash-item/hash-item.component';
 
 
 
@@ -12,7 +13,8 @@ import { FilterByTagPipe } from './pipes/filter-by-tag.pipe';
   declarations: [
     ListComponent,
     ListItemComponent,
-    FilterByTagPipe
+    FilterByTagPipe,
+    HashItemComponent
   ],
   exports: [
     ListComponent

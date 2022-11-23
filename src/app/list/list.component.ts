@@ -14,6 +14,9 @@ export class ListComponent {
   @Input()
   todos: Todo[] | undefined;
 
+  @Input()
+  hashes: Array<string> | undefined | null;
+
   @Output()
   delete: EventEmitter<Todo> = new EventEmitter();
 
