@@ -39,6 +39,7 @@ export class ListItemComponent {
   }
 
   changeText(todo: Todo, title: string) {
+    this.bold = false;
     this.updateTodo({
       ...todo,
       title: title

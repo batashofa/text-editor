@@ -6,7 +6,7 @@
     (change)="toggleCheckbox(todo)"
     type="checkbox">
   <input [readonly]="readonly" #todoTitle
-         [style.fontWeight]="bold ? '700' : 'normal'"
+         [style.fontWeight]="bold ? '700' : '200'"
          [style.outline]="readonly ? '0' : 'black solid 2px'"
          [style.outlineOffset]="readonly ? '1' : '5px'"
          (keyup.enter)="changeText(todo, todoTitle.value)"

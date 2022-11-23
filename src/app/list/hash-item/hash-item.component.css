@@ -8,3 +8,7 @@
   border-radius: 5px;
   margin: 10px auto;
 }
+
+.hash-item:hover {
+  cursor: pointer;
+}
