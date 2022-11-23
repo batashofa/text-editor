@@ -8,6 +8,7 @@ import {Todo} from "../../todo";
 })
 export class ListItemComponent {
   readonly: boolean = true;
+  bold: boolean = false;
 
   @Input()
   todo!: Todo;
@@ -27,6 +28,9 @@ export class ListItemComponent {
   }
 
   editTodo(todo: Todo, title: string) {
+    if(title.match(/#[0-9A-Za-zА-Яа-яё]+/g)) {
+      this.bold = true;
+    }
     if (!this.readonly){
       this.changeText(todo, title);
     }
