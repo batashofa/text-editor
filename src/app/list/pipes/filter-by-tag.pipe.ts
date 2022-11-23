@@ -5,10 +5,10 @@ import {Pipe, PipeTransform} from '@angular/core';
 })
 
 export class FilterByTagPipe implements PipeTransform {
-  transform(value: any, title: string): any {
-    if (title === '' || undefined) {
-      return value;
+  transform(todos: any, hash: string): any {
+    if (hash === '' || undefined) {
+      return todos;
     }
-    return value.filter((item: any) => item?.title.toLocaleLowerCase().includes(title.toLocaleLowerCase()));
+    return todos.filter((item: any) => item?.title.toLocaleLowerCase().includes(hash.toLocaleLowerCase()));
   }
 }

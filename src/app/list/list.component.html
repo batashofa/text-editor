@@ -3,7 +3,7 @@
 
   <ul class="list_items" *ngIf="toggle; else noList">
     <app-list-item
-      *ngFor="let todo of todos"
+      *ngFor="let todo of todos | filterByTag: hash"
       [todo]="todo"
       (delete)="deleteTodo($event)"
       (update)="updateTodo($event)"
@@ -14,6 +14,7 @@
   <app-hash-item
     *ngFor="let hash of hashes"
     [hash]="hash"
+    (hashFilter)="filterTodos($event)"
   >
   </app-hash-item>
   </ul>

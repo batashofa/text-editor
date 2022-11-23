@@ -7,7 +7,7 @@ import {Todo} from "../todo";
   styleUrls: ['./list.component.css']
 })
 export class ListComponent {
-  public title: string = '';
+  public hash: string = '';
 
   toggle: boolean = true;
 
@@ -22,6 +22,10 @@ export class ListComponent {
 
   @Output()
   update: EventEmitter<Todo> = new EventEmitter();
+  
+  filterTodos(hash: string) {
+    this.hash = hash
+  }
 
   toggleList() {
     this.toggle = !this.toggle;

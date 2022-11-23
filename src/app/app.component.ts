@@ -7,9 +7,10 @@ import {Todo} from "./todo";
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent {
   todos: Todo[] = [];
-  hashes: Array<string> | null = [];
+  hashes: Array<string> = [];
   myId: number = 2343532;
   title = 'text-editor';
 
@@ -29,8 +30,8 @@ export class AppComponent {
     this.appService.postTodo(todo)
       .subscribe(todo => {
         this.todos = [...this.todos, todo];
-        this.hashes = this.todos.map((item) => item?.title).join().match(/#[0-9A-Za-zА-Яа-яё]+/g);
-        console.log(this.hashes)
+        this.hashes = (this.todos.map((item) => item?.title).join().match(/#[0-9A-Za-zА-Яа-яё]+/g)  ?? [])
+          .filter((item, index, self) => (self.indexOf(item)===index));
       });
   }
 
