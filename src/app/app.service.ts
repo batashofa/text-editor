@@ -18,9 +18,9 @@ export class AppService {
   postTodo(todo: Todo): Observable<Todo> {
     return this.http.post<Todo>(this.todosUrl, todo);
   }
-  
+
   updateTodo(todo: Todo): Observable<Todo> {
-    return this.http.put<Todo>(this.todosUrl + todo.id, todo);
+    return this.http.patch<Todo>(this.todosUrl + todo.id, todo);
   }
 
   deleteTodo(todoId: number | undefined): Observable<Todo> {

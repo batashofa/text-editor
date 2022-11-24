@@ -18,7 +18,7 @@ export class TaskComponent  {
     const newTodo: Todo = {
       userId: this.myId,
       title: title,
-      body: ""
+      completed: false
     }
     event.preventDefault();
     this.addTodo.emit(newTodo);

@@ -12,3 +12,18 @@
 .hash-item:hover {
   cursor: pointer;
 }
+
+img {
+  width: 100%;
+}
+
+img:hover {
+  cursor: pointer;
+}
+
+.hash_delete {
+  width: 30px;
+  height: 30px;
+  border: none;
+  background-color: #80808000;
+}

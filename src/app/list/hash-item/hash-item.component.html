@@ -1,4 +1,8 @@
-<li class="hash-item"
-    (click)="filter(hash)">
-  {{hash}}
+<li class="hash-item">
+  <div (click)="filter(hash)">
+    {{hash}}
+  </div>
+  <button class="hash_delete" title="delete hash"  (click)="delete(hash)">
+    <img src="assets/close.png">
+  </button>
 </li>

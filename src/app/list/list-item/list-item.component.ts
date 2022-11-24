@@ -7,12 +7,13 @@ import {Todo} from "../../todo";
   styleUrls: ['./list-item.component.css']
 })
 export class ListItemComponent {
-  readonly: boolean = true;
-  bold: boolean = false;
+  public readonly: boolean = true;
+  public bold: boolean = false;
+  public hashes: any ;
 
   @Input()
   todo!: Todo;
-
+  
   @Output()
   delete: EventEmitter<Todo> = new EventEmitter();
 
@@ -28,10 +29,11 @@ export class ListItemComponent {
   }
 
   editTodo(todo: Todo, title: string) {
-    if(title.match(/#[0-9A-Za-zА-Яа-яё]+/g)) {
+    if (title.match(/#[0-9A-Za-zА-Яа-яё]+/g)) {
       this.bold = true;
+      this.hashes = title.match(/#[0-9A-Za-zА-Яа-яё]+/g);
     }
-    if (!this.readonly){
+    if (!this.readonly) {
       this.changeText(todo, title);
     }
     this.readonly = !this.readonly;
@@ -46,7 +48,7 @@ export class ListItemComponent {
     })
   }
 
-  toggleCheckbox(todo: Todo){
+  toggleCheckbox(todo: Todo) {
     this.updateTodo({
       ...todo,
       completed: !todo.completed

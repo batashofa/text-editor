@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {Component, ElementRef, EventEmitter, Input, Output} from '@angular/core';
 import {Todo} from "../todo";
 
 @Component({
@@ -8,8 +8,7 @@ import {Todo} from "../todo";
 })
 export class ListComponent {
   public hash: string = '';
-
-  toggle: boolean = true;
+  public toggle: boolean = true;
 
   @Input()
   todos: Todo[] | undefined;
@@ -22,9 +21,20 @@ export class ListComponent {
 
   @Output()
   update: EventEmitter<Todo> = new EventEmitter();
-  
+
+  @Output()
+  edit: EventEmitter<string> = new EventEmitter();
+
+  constructor(
+    private _elementRef: ElementRef
+  ) {}
+
   filterTodos(hash: string) {
-    this.hash = hash
+    this.hash = hash;
+  }
+
+  deleteTodos(hash: string) {
+    this.hashes = this.hashes?.filter((n) => {return n != hash});
   }
 
   toggleList() {
@@ -34,7 +44,7 @@ export class ListComponent {
   deleteTodo(todo: Todo) {
     this.delete.emit(todo);
   }
-
+  
   updateTodo(todo: Todo) {
     this.update.emit(todo);
   }

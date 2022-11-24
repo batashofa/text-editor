@@ -30,8 +30,6 @@ export class AppComponent {
     this.appService.postTodo(todo)
       .subscribe(todo => {
         this.todos = [...this.todos, todo];
-        this.hashes = (this.todos.map((item) => item?.title).join().match(/#[0-9A-Za-zА-Яа-яё]+/g)  ?? [])
-          .filter((item, index, self) => (self.indexOf(item)===index));
       });
   }
 
@@ -55,6 +53,8 @@ export class AppComponent {
               return todo;
             }
           });
+          this.hashes = (this.todos.map((item) => item?.title).join().match(/#[0-9A-Za-zА-Яа-яё]+/g) ?? [])
+            .filter((item, index, self) => (self.indexOf(item) === index));
         }
       );
   }

@@ -9,14 +9,12 @@
       (update)="updateTodo($event)"
     >
     </app-list-item>
-  </ul>
-  <ul>
-  <app-hash-item
-    *ngFor="let hash of hashes"
-    [hash]="hash"
-    (hashFilter)="filterTodos($event)"
-  >
-  </app-hash-item>
+    <app-hash-item
+      *ngFor="let hash of hashes"
+      [hash]="hash"
+      (hashFilter)="filterTodos($event)"
+      (hashDelete)="deleteTodos($event)">
+    </app-hash-item>
   </ul>
 </div>
 
